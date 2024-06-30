@@ -99,18 +99,18 @@ namespace FlatRedBall.Content
         public static Texture2D GetDefaultFontTexture(GraphicsDevice graphicsDevice)
         {
 #if ANDROID
-            var activity = FlatRedBallServices.Game.Services.GetService<Android.App.Activity>();
+            //var activity = FlatRedBallServices.Game.Services.GetService<Android.App.Activity>();
 
-            if(activity == null)
-            {
-                string message =
-                    "As of July 2017, FlatRedBall Android performs a much faster loading of the default font. This requires a change to the Activity1.cs file. You can look at a brand-new Android template to see the required changes.";
+            //if(activity == null)
+            //{
+            //    string message =
+            //        "As of July 2017, FlatRedBall Android performs a much faster loading of the default font. This requires a change to the Activity1.cs file. You can look at a brand-new Android template to see the required changes.";
 
-                throw new NullReferenceException(message);
-            }
+            //    throw new NullReferenceException(message);
+            //}
 
 
-            Android.Content.Res.AssetManager androidAssetManager = activity.Assets;
+            Android.Content.Res.AssetManager androidAssetManager = Application.Context.Assets;
             Texture2D texture;
 
             try

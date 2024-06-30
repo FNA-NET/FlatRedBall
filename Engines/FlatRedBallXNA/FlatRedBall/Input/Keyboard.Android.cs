@@ -5,6 +5,9 @@ using Android.App;
 using Android.Content;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+#if FNA
+using Org.Libsdl.App;
+#endif
 
 namespace FlatRedBall.Input
 {
@@ -30,7 +33,11 @@ namespace FlatRedBall.Input
 
 		public void ShowKeyboard() 
 		{
-            var view = FlatRedBallServices.Game.Services.GetService<View>();
+#if FNA
+			var view = SDLActivity.ContentView;
+#else
+			var view = FlatRedBallServices.Game.Services.GetService<View>();
+#endif
             var context = view.Context;
 
             view.RequestFocus();
@@ -47,7 +54,11 @@ namespace FlatRedBall.Input
 
 		public void HideKeyboard()
 		{
-            var view = FlatRedBallServices.Game.Services.GetService<View>();
+#if FNA
+			var view = SDLActivity.ContentView;
+#else
+			var view = FlatRedBallServices.Game.Services.GetService<View>();
+#endif
             var context = view.Context;
             InputMethodManager inputMethodManager = context.GetSystemService(Context.InputMethodService) as InputMethodManager;
             inputMethodManager.HideSoftInputFromWindow(

@@ -7,6 +7,7 @@ using RenderingLibrary;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using KeyEventArgs = FlatRedBall.Forms.Input.KeyEventArgs;
 
 namespace FlatRedBall.Forms.Controls
 {

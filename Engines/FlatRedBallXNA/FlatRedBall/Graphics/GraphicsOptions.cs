@@ -5,6 +5,9 @@ using System.Xml.Serialization;
 using FlatRedBall.IO;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+#if FNA && ANDROID
+using Org.Libsdl.App;
+#endif
 
 #if !MONOGAME && !FNA
     using System.Windows.Forms;
@@ -521,7 +524,11 @@ namespace FlatRedBall.Graphics
             ResetDevice();
 
 #if ANDROID
+#if FNA
+            var activity = SDLActivity.Context as Activity;
+#else
             var activity = FlatRedBallServices.Game.Services.GetService<Activity>();
+#endif
             var activityWindow = activity?.Window;
 
             if (activityWindow != null)

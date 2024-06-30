@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;net8.0;net8.0-windows;net8.0-android;net8.0-ios</TargetFrameworks>
+        <DefineConstants>FNA;XNA4;FRB_XNA;</DefineConstants>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <DefineConstants>$(DefineConstants);DESKTOP_GL</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0'">
+        <DefineConstants>$(DefineConstants);DESKTOP_GL</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+        <DefineConstants>$(DefineConstants);DESKTOP_GL</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="TextCopy" Version="6.1.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\FlatRedBallXNA\FlatRedBall.FNA.NET\FlatRedBall.FNA.NET.csproj" />
+        <ProjectReference Include="..\..\..\..\..\Gum\Gum.FNA.NET\Gum.FNA.NET.csproj" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <ProjectReference Include="..\..\..\..\..\Gum\SvgPlugin\SkiaInGumShared\SkiaInGum.FNA.NET.csproj" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+        <ProjectReference Include="..\..\..\..\..\Gum\SvgPlugin\SkiaInGumShared\SkiaInGum.FNA.NET.csproj" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+        <ProjectReference Include="..\..\..\..\..\Gum\SvgPlugin\SkiaInGumShared\SkiaInGum.FNA.NET.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\FlatRedBall.Forms.Shared\FlatRedBall.Forms.Shared.projitems" Label="Shared" />
+</Project>

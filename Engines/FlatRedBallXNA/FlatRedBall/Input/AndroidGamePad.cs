@@ -163,7 +163,11 @@ namespace FlatRedBallAndroid.Input
         public static GamePadState GetState(int index, GamePadDeadZone deadZoneMode)
         {
             var gamePad = GamePads[index];
+#if FNA
+            GamePadState state = new GamePadState();
+#else
             GamePadState state = GamePadState.Default;
+#endif
             if (gamePad != null && gamePad._isConnected)
             {
                 // Check if the device was disconnected

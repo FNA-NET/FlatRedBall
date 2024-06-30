@@ -1056,7 +1056,7 @@ public class MainGumPlugin : PluginBase
 
     public override bool ShutDown(FlatRedBall.Glue.Plugins.Interfaces.PluginShutDownReason shutDownReason)
     {
-        Glue.MainGlueWindow.Self.Invoke((MethodInvoker)RemoveAllMenuItems);
+        Glue.MainGlueWindow.Self.Invoke(RemoveAllMenuItems);
 
         CodeGeneratorManager.Self.RemoveCodeGenerators();
 

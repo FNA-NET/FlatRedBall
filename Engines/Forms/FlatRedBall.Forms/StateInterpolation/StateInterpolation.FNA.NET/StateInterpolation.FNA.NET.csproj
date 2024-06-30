@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net8.0;net8.0-windows;net8.0-android;net8.0-ios</TargetFrameworks>
+    <DefineConstants>FNA;XNA4</DefineConstants>
+	  <GenerateDocumentationFile>false</GenerateDocumentationFile>
+
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\FlatRedBallXNA\FlatRedBall.FNA.NET\FlatRedBall.FNA.NET.csproj" />
+  </ItemGroup>
+  <Import Project="..\..\..\..\..\FRBDK\Glue\StateInterpolationPlugin\StateInterpolationPlugin\StateInterpolationShared.projitems" Label="Shared" />
+</Project>

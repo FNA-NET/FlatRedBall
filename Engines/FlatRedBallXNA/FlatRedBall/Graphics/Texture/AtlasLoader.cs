@@ -173,7 +173,7 @@ namespace FlatRedBall.Graphics.Texture
 #elif __ANDROID__
 		private static string[] ReadDataFile(string dataFile) {
 			using(var ms = new MemoryStream()) {
-				using (var s = Game.Activity.Assets.Open (dataFile)) {
+				using (var s = Application.Context.Assets.Open (dataFile)) {
 					s.CopyTo (ms);
 					return System.Text.Encoding.Default.GetString (ms.ToArray()).Split (new char[] { '\n'});
 				}

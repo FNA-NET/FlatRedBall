@@ -69,7 +69,7 @@ namespace FlatRedBall.IO
 #if FRB_RAW || DESKTOP_GL
         public static string DefaultRelativeDirectory = 
             System.IO.Path.GetDirectoryName(AppContext.BaseDirectory) + "/";
-#elif MONOGAME
+#elif MONOGAME || ANDROID || IOS
         public static string DefaultRelativeDirectory = "./";
 
 #else
@@ -228,6 +228,8 @@ namespace FlatRedBall.IO
             {
 #if IOS || ANDROID
 				return "./";
+#elif FNA
+                return SDL2.SDL.SDL_GetBasePath();
 #elif FRB_RAW || DESKTOP_GL || STANDARD
                 return System.IO.Path.GetDirectoryName( Assembly.GetExecutingAssembly().Location ) + "/";
 

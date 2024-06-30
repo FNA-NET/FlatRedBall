@@ -553,7 +553,7 @@ namespace FlatRedBall
             // am wondering why we have both, and why can't we just
             // use one of them.
 
-#if WINDOWS && !STANDARD
+#if WINDOWS && !STANDARD && !FNA
             mOwner =
                 System.Windows.Forms.Form.FromHandle(mWindowHandle);
 
@@ -564,7 +564,7 @@ namespace FlatRedBall
 
 #endif
 
-#if WINDOWS && !STANDARD
+#if WINDOWS && !STANDARD && !FNA
 
             mOwner.Resize += new EventHandler(Window_ClientSizeChanged);
 #else
@@ -745,7 +745,7 @@ namespace FlatRedBall
         public static void InitializeShaders()
         {
 
-#if WINDOWS && !STANDARD
+#if WINDOWS && !STANDARD && !FNA
             if(mResourceContentManager != null)
             {
                 mResourceContentManager.Dispose();

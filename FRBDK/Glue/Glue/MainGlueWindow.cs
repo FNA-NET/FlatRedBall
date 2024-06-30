@@ -127,7 +127,7 @@ public partial class MainGlueWindow : Form
             // https://stackoverflow.com/questions/75702346/why-does-the-presence-of-net-7-0-2-sdk-cause-the-sdk-resolver-microsoft-dotnet?noredirect=1#comment133550210_75702346
             // "7.0." instead of "7.0.201"
             //.Where(item => item.Value.StartsWith("7.0.") == false)
-            .Where(m => int.Parse(m.Groups[1].Value) < 7)
+            .Where(m => int.Parse(m.Groups[1].Value) < 9)
             .OrderByDescending(m => int.Parse(m.Groups[1].Value))
             .ThenByDescending(m => int.Parse(m.Groups[2].Value))
             .ThenByDescending(m => int.Parse(m.Groups[3].Value))
